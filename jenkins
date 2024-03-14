@@ -14,18 +14,18 @@ pipeline {
                 echo 'Testing...'
                 
                 script {
-                    def powershellCommand = """
+                    def Command = """
                         \$SMTPServer = "smtp.gmail.com"
                         \$SMTPFrom = "hemaksh4791.be22@chitkara.edu.in"
                         \$SMTPTo = "hemaksh4791.be22@chitkara.edu.in"
-                        \$SMTPSubject = "Test success."
-                        \$SMTPBody = "Test successful."
+                        \$SMTPSubject = "test mail."
+                        \$SMTPBody = "Hello user."
                         \$SMTPUsername = "hemaksh4791.be22@chitkara.edu.in"
                         \$SMTPPassword = "ginx xyew uvkt saiv"
     
                         Send-MailMessage -From \$SMTPFrom -to \$SMTPTo -Subject \$SMTPSubject -Body \$SMTPBody -SmtpServer \$SMTPServer -UseSsl -Port 587 -Credential (New-Object System.Management.Automation.PSCredential \$SMTPUsername, (ConvertTo-SecureString -AsPlainText \$SMTPPassword -Force))
                     """
-                    powershell(powershellCommand)
+                    powershell(Command)
                 }
             }
         }
@@ -43,8 +43,8 @@ pipeline {
                         \$SMTPServer = "smtp.gmail.com"
                         \$SMTPFrom = "hemaksh4791.be22@chitkara.edu.in"
                         \$SMTPTo = "hemaksh4791.be22@chitkara.edu.in"
-                        \$SMTPSubject = "Security checks passed."
-                        \$SMTPBody = "Pipeline cleared security checks."
+                        \$SMTPSubject = "Security mail."
+                        \$SMTPBody = "Security check hello user."
                         \$SMTPUsername = "hemaksh4791.be22@chitkara.edu.in"
                         \$SMTPPassword = "ginx xyew uvkt saiv"
     
@@ -77,13 +77,13 @@ pipeline {
    post {
        success {
             emailext subject: "Pipeline '${currentBuild.fullDisplayName}' Successful",
-                      body: 'The build was successful. Congratulations!',
+                      body: 'The code run successfully!',
                       to: 'hemaksh4791.be22@chitkara.edu.in',
                       attachLog: true
         }
         failure {
             emailext subject: "Pipeline '${currentBuild.fullDisplayName}' Failed",
-                      body: 'The build has failed. Please investigate.',
+                      body: 'It was unseccessful ',
                       to: 'hemaksh4791.be22@chitkara.edu.in',
                       attachLog: true
         }
