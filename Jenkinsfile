@@ -4,26 +4,26 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building the code using ..'
+                echo 'Building the code using maven..'
             }
         }
         
         stage('Unit and Integration Tests') {
             steps {
-                echo 'Running unit tests...'
-                echo 'Running integration tests...'
+                echo 'Running unit tests using Junit.'
+                echo 'Running integration tests... selenium'
             }
         }
         
         stage('Code Analysis') {
             steps {
-                echo 'Running code analysis...'
+                echo 'Running code analysis...using sonarQube'
             }
         }
         
         stage('Security Scan') {
             steps {
-                echo 'Performing security scan...'
+                echo 'Performing security scan using OWASP ZAP'
             }
         }
         
@@ -41,7 +41,7 @@ pipeline {
         
         stage('Deploy to Production') {
             steps {
-                echo 'Deploying the application to production server'
+                echo 'Deploying the application to production server Amazon EC2'
             }
         }
     }
