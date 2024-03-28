@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building the code using Maven...'
+                echo 'Building the code using ..'
             }
         }
         
@@ -17,19 +17,19 @@ pipeline {
         
         stage('Code Analysis') {
             steps {
-                echo 'Running code analysis using SonarQube...'
+                echo 'Running code analysis...'
             }
         }
         
         stage('Security Scan') {
             steps {
-                echo 'Performing security scan using OWASP ZAP...'
+                echo 'Performing security scan...'
             }
         }
         
         stage('Deploy to Staging') {
             steps {
-                echo 'Deploying the application to staging server (e.g., AWS EC2 instance)...'
+                echo 'Deploying the application.'
             }
         }
         
@@ -41,7 +41,7 @@ pipeline {
         
         stage('Deploy to Production') {
             steps {
-                echo 'Deploying the application to production server (e.g., AWS EC2 instance)...'
+                echo 'Deploying the application to production server'
             }
         }
     }
